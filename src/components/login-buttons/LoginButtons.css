@@ -1,0 +1,10 @@
+.selected-button {
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+.buttons-row {
+    min-width: 400px;
+    justify-content: space-between;
+    border: 1px solid black;
+    display: flex;
+}
