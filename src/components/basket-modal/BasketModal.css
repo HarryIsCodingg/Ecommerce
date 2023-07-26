@@ -1,0 +1,36 @@
+.basket-row {
+    display: flex;
+    margin-top: 16px;
+    gap: 24px;
+    justify-content: space-around;
+}
+
+.basket {
+    width: 200px;
+    height: 200px;
+}
+
+.basket:hover {
+    scale: 1.10;
+    cursor: pointer;
+}
+
+.custom-basket-image {
+    background: url("../../assets/images/customBasket.png") center no-repeat;
+    height: 100%;
+    width: 200px;
+    background-size: contain;
+}
+
+.empty-basket-image {
+    background: url("../../assets/images/emptyBasket.png") center no-repeat;
+    height: 200px;
+    width: 200px;
+    background-size: contain;
+}
+
+.basket-description {
+    text-align: center;
+    position: relative;
+    top: -16px;
+}

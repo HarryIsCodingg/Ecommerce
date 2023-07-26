@@ -4,11 +4,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fcf1e4;
+    background-color: gainsboro;
 }
 
 .form-wrapper {
     width: 400px;
     border-radius: 8px;
-    border: 1px solid black;
+    background: white;
+    box-shadow: 2px 4px 8px rgb(7, 7, 7);
 }

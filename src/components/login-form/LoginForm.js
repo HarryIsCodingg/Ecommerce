@@ -1,9 +1,11 @@
 import './LoginForm.css';
 import {useState} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {selectFlow} from "../../core/redux-store/slices/flowSlice";
 import AdminService from "../../core/services/AdminService";
 import UserService from "../../core/services/UserService";
+import {setUser} from "../../core/redux-store/slices/userSlice";
+import {closeBasketModal, openBasketModal} from "../../core/redux-store/slices/basketModalSlice";
 
 const LoginForm =() => {
 
@@ -13,34 +15,49 @@ const LoginForm =() => {
     const [isPasswordMissing, setIsPasswordMissing] = useState(false);
     const [showError, setShowError] = useState(false);
     const flow = useSelector(selectFlow);
+    const dispatch = useDispatch();
 
     const handleNameChange = (event) => {
         setUsername(event.target.value);
         setIsUsernameMissing(false);
+        setShowError(false);
     }
 
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
         setIsPasswordMissing(false);
+        setShowError(false);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setShowError(false);
+        dispatch(closeBasketModal());
         if(username === '' || password === ''){
-            if(username === ''){setIsUsernameMissing(true)}
-            if(password === ''){setIsPasswordMissing(true)}
+            if(username === ''){setIsUsernameMissing(true);}
+            if(password === ''){setIsPasswordMissing(true);}
         }
         else if(flow === 'admin'){
             AdminService.verifyLogin({username: username, password: password})
         }else if(flow === 'user'){
-            UserService.verifyLogin({username: username, password: password})
+            const user= await UserService.verifyLogin({username: username, password: password});
+            if(!!user.credentials){
+                SaveUser(user);
+            }else{
+                setShowError(true);
+            }
         }
+    }
+
+    const SaveUser = (user) => {
+        dispatch(setUser(user));
+        dispatch(openBasketModal());
     }
 
     return (
         <div className='login-form'>
             <form onSubmit={handleSubmit}>
+                {showError && <div className='login-error'>Username or password incorrect</div>}
                 <div className='form-row'>
                     <label htmlFor="name" style={{display:'block'}}>Username</label>
                     <input className='form-input' type="text" id="name" name="name" onChange={handleNameChange}/>
