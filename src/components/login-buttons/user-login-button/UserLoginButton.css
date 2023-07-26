@@ -1,5 +1,6 @@
 .user-login-button {
     flex: 1;
-    padding: 4px;
+    padding: 8px;
+    border-top-left-radius: 7px;
     text-align: center;
 }
