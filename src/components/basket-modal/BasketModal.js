@@ -3,6 +3,8 @@ import './BasketModal.css';
 import Modal from 'react-modal';
 import {useDispatch, useSelector} from "react-redux";
 import {selectShowBasketModal} from "../../core/redux-store/slices/basketModalSlice";
+import {setCustomBasket, setEmptyBasket} from "../../core/redux-store/slices/userSlice";
+import {Link} from "react-router-dom";
 
 const BasketModal = () => {
     const [isModalOpen,setIsModalOpen] = useState(false);
@@ -11,7 +13,8 @@ const BasketModal = () => {
 
     useEffect(()=> {
         setIsModalOpen(showBasketModal);
-    }, [showBasketModal])
+    }, [showBasketModal]);
+
     const closeModal = () => {
         setIsModalOpen(false);
     }
@@ -22,11 +25,13 @@ const BasketModal = () => {
     };
 
     const selectCustomBasket = () => {
-
+        dispatch(setCustomBasket());
+        setIsModalOpen(false);
     }
 
     const selectEmptyBasket = () => {
-
+        dispatch(setEmptyBasket());
+        setIsModalOpen(false);
     }
 
     return (
@@ -35,14 +40,18 @@ const BasketModal = () => {
                 overlay: overlayStyles}}>
                 <h3 style={{textAlign: 'center'}}>Please select custom basket or empty basket</h3>
                 <div className='basket-row'>
-                    <div onClick={selectCustomBasket} className='custom basket'>
-                        <div className='custom-basket-image'/>
+                    <Link to='user/products' className='link'>
+                        <div onClick={selectCustomBasket} className='custom basket'>
+                            <div className='custom-basket-image'></div>
                             <div className='basket-description'>Custom Basket</div>
                         </div>
-                    <div onClick={selectEmptyBasket} className='empty basket'>
-                        <div className='empty-basket-image'/>
+                    </Link>
+                    <Link to='user/products' className='link'>
+                        <div onClick={selectEmptyBasket} className='empty basket'>
+                            <div className='empty-basket-image'></div>
                             <div className='basket-description'>Empty Basket</div>
-                    </div>
+                        </div>
+                    </Link>
                 </div>
             </Modal>
         </div>

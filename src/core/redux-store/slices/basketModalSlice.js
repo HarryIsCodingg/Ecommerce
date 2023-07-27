@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const showModalState = {
     showModal: false,
+    showCartModal: false,
 };
 
 const basketModalSlice = createSlice({
@@ -13,10 +14,17 @@ const basketModalSlice = createSlice({
         },
         closeBasketModal : (state) => {
             state.showModal = false;
+        },
+        openCartModal : (state) => {
+            state.showCartModal = true;
+        },
+        closeCartModal : (state) => {
+            state.showCartModal = false;
         }
     }
 });
 
 export default basketModalSlice.reducer;
-export const { openBasketModal, closeBasketModal } = basketModalSlice.actions;
+export const { openBasketModal, closeBasketModal, openCartModal, closeCartModal } = basketModalSlice.actions;
 export const selectShowBasketModal = (state) => state.showBasketModal.showModal;
+export const selectShowCartModal = state => state.showBasketModal.showCartModal;

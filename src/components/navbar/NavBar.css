@@ -2,5 +2,21 @@
     background-color: black;
     display: flex;
     padding: 12px;
+    align-items: center;
     justify-content: space-between;
+}
+
+.navbar-link-wrapper {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.logout-button {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid orange;
+    border-radius: 8px;
+    align-items: center;
 }
