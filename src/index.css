@@ -15,7 +15,7 @@
   color: white;
 }
 
-.pointer {
+.pointer:hover {
   cursor: pointer;
 }
 
@@ -28,4 +28,16 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 2px 4px 8px rgb(7, 7, 7);
+}
+
+.modal:focus {
+  outline: none;
+}
+
+.delete-icon {
+  color: red;
+}
+
+.delete-icon:hover {
+  scale: 1.1;
 }

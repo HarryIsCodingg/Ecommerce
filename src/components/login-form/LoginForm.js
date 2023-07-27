@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectFlow} from "../../core/redux-store/slices/flowSlice";
 import AdminService from "../../core/services/AdminService";
 import UserService from "../../core/services/UserService";
-import {setUser} from "../../core/redux-store/slices/userSlice";
+import {setUser, setUserLogin} from "../../core/redux-store/slices/userSlice";
 import {closeBasketModal, openBasketModal} from "../../core/redux-store/slices/basketModalSlice";
 
 const LoginForm =() => {
@@ -52,6 +52,7 @@ const LoginForm =() => {
     const SaveUser = (user) => {
         dispatch(setUser(user));
         dispatch(openBasketModal());
+        dispatch(setUserLogin());
     }
 
     return (
