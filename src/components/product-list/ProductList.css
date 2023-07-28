@@ -1,8 +1,9 @@
 .product-header {
     display: flex;
-    margin: 56px 20px 56px 56px;
+    margin: 0 20px 56px 56px;
     justify-content: space-between;
     align-items: center;
+    padding-top: 56px;
 }
 
 .product-header h4 {

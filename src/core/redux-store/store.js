@@ -3,6 +3,7 @@ import flowSliceReducers from './slices/flowSlice';
 import currentUserReducer from './slices/userSlice';
 import showBasketModalReducer from './slices/basketModalSlice';
 import availableProductReducer from './slices/productSlice';
+import checkoutStepReducer from './slices/checkoutStepSlice';
 
 const store = configureStore({
     devTools: true,
@@ -11,6 +12,8 @@ const store = configureStore({
         currentUser: currentUserReducer,
         showBasketModal : showBasketModalReducer,
         products: availableProductReducer,
+        checkoutStep: checkoutStepReducer,
+
     }
 })
 
