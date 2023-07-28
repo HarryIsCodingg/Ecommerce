@@ -26,7 +26,7 @@ const CartItemList = () => {
             <div className='cart-item'>
                 <span>{props.name}</span>
                 <span>{props.quantity}</span>
-                <span>{props.price}</span>
+                <span>{+props.quantity * +props.pricePerPound}</span>
                 <Icon icon='typcn:delete-outline' className='delete-icon pointer' height={24} onClick={() => deleteItem(props.name)}/>
             </div>
         )
@@ -38,7 +38,7 @@ const CartItemList = () => {
                 <>
                     <div className='cart-item-description'>
                         <h4>Name</h4>
-                        <h4>Quantity</h4>
+                        <h4>Weight in pounds</h4>
                         <h4>Price</h4>
                     </div>
                     {selectedItems.map(item => (

@@ -1,0 +1,30 @@
+.product-card-wrapper {
+    display: flex;
+    margin: 20px;
+    padding-bottom: 24px;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+}
+
+.product-card-wrapper span {
+    flex: 1;
+    text-align: center;
+}
+
+.product-quantity-change-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.quantity-button:hover{
+    border-radius: 12px;
+    background: orange;
+}
+
+.quantity-button {
+    font-size: 20px;
+    padding: 2px;
+    width: 30px;
+}
