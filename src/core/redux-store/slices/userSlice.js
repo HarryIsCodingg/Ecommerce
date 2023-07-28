@@ -6,7 +6,7 @@ const userState = {
         password: undefined,
     },
     hasCustomBasket: false,
-    productList: undefined,
+    productList: [],
     isCustomBasketSelected: undefined,
     isLoggedIn: undefined,
 }
@@ -25,7 +25,7 @@ const userSlice = createSlice({
         },
         setEmptyBasket: (state) => {
             state.isCustomBasketSelected = false;
-            state.productList = null;
+            state.productList = [];
         },
         setProductList: (state, action) => {
             state.productList = action.payload.productList;

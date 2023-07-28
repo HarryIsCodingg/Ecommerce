@@ -1,0 +1,22 @@
+.product-header {
+    display: flex;
+    margin: 56px 20px 56px 56px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-header h4 {
+    flex-grow: 1;
+}
+.product-header h4:nth-child(1) {
+    margin-left: 24px;
+}
+
+.product-header h4:nth-child(2) {
+    text-align: center;
+    margin-right: 100px;
+}
+
+.product-header h4:nth-child(3), h4:nth-child(4) {
+    text-align: right;
+}
