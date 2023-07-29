@@ -1,10 +1,44 @@
 .checkout-summary {
     border-radius: 8px;
     background: white;
-    padding: 56px 56px 0 56px;
-    overflow-y: scroll;
+    padding: 42px 56px 36px 56px;
+    /*overflow-y: scroll;*/
     width: 25%;
     box-shadow: 2px 4px 8px rgb(7, 7, 7);
     position: fixed;
     right: 56px;
+    z-index: 5 !important;
 }
+
+.summary-row {
+    display: flex;
+    border-bottom: 1px solid gainsboro;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
+.price-row {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.discount {
+    position: fixed;
+    top: 350px;
+    text-align: center;
+    display: flex;
+    gap: 16px;
+    z-index: -10 !important;
+    background: orange;
+    justify-content: center;
+    border-bottom: 1px dashed black;
+    border-radius: 0 0 4px 4px;
+    border-right: 1px dashed black;
+    border-left: 1px dashed black;
+    padding: 8px;
+    margin-top: 4px;
+    color: black;
+}
+

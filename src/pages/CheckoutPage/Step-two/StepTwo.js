@@ -54,8 +54,8 @@ const StepTwo = () => {
     return (
         <div>
             <div className='step-description'>
-                <Icon icon='tabler:circle-number-1' fontSize={20} color='black'/>
-                <h4>Personal Information</h4>
+                <Icon icon='tabler:circle-number-2' fontSize={20} color='black'/>
+                <h4>Payment Details</h4>
             </div>
             <form onSubmit={handleSubmit}>
                 <div className='form-row'>
