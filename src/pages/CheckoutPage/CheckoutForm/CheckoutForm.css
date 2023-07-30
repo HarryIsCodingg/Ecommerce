@@ -1,0 +1,36 @@
+.checkout-form {
+    border-radius: 8px;
+    background: white;
+    width: 65%;
+    padding-bottom: 56px;
+    overflow-y: hidden;
+    box-shadow: 2px 4px 8px rgb(7, 7, 7);
+}
+
+.required-field::after {
+    content: "*";
+    color: red;
+    margin-left: 8px;
+}
+
+.step-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    border-radius: 8px 8px 0 0;
+    background-color: orange;
+    text-align: center;
+    padding-top: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.step-description h4 {
+    letter-spacing: 2px;
+    font-family: sans-serif;
+}
+
+.checkout-form form {
+    padding: 16px 48px 48px 48px;
+}

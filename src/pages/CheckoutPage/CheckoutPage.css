@@ -1,0 +1,26 @@
+.checkout-page-wrapper {
+    /*width: 100vw;*/
+    /*height: 100vh;*/
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    background: gainsboro;
+}
+
+.back-button {
+    position: absolute;
+    top: 70px;
+    display: flex;
+    border: none;
+    background: none;
+    align-items: center;
+    left: 6px;
+    width: 72px;
+    height: 36px;
+}
+
+.back-button:hover {
+    border-radius: 8px;
+    border: 1px solid orange;
+}

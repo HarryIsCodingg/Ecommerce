@@ -1,0 +1,64 @@
+
+.suggestion-row {
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggestion-content {
+    display: flex;
+    gap: 16px;
+    width: 150px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.icon:hover {
+    background: orange;
+    border-radius: 8px;
+    padding: 2px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.suggestion-content-wrapper {
+    display: flex;
+    margin-top: 16px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.quantity-buttons-wrapper {
+    display: flex;
+    gap: 6px;
+    text-align: center;
+    align-items: center;
+}
+
+.add-button {
+    padding: 6px;
+    border: none;
+    background: orange;
+    color: black;
+    border-radius: 8px;
+
+}
+
+.add-button:hover {
+    background: none;
+    border: 1px solid orange;
+}
+
+.success {
+    gap: 16px;
+    padding: 4px;
+    border-radius: 8px;
+    margin-top: 16px;
+    background: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}

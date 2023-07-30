@@ -1,10 +1,10 @@
 .product-card-wrapper {
     display: flex;
-    margin: 20px;
+    margin: 20px 20px 0 20px;
     padding-bottom: 24px;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .product-card-wrapper span {
