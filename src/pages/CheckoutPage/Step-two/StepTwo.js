@@ -1,7 +1,8 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {setNextStep} from "../../../core/redux-store/slices/checkoutStepSlice";
 import {Icon} from "@iconify/react";
+import {useNavigate} from "react-router-dom";
+import {removeBasket} from "../../../core/redux-store/slices/userSlice";
 
 const StepTwo = () => {
     const [emailAddress, setEmailAddress] = useState('');
@@ -13,6 +14,7 @@ const StepTwo = () => {
     const [isCardExpiryMissing, setIsCardExpiryMissing] = useState(false);
     const [isCardCVVMissing, setIsCardCVVMissing] = useState(false);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleEmail = (event) => {
         setEmailAddress(event.target.value);
@@ -47,7 +49,8 @@ const StepTwo = () => {
             if(cardCVVLength === 0){setIsCardCVVMissing(true);}
             if(cardExpiryLength === 0){setIsCardExpiryMissing(true);}
         }else{
-            dispatch(setNextStep());
+            dispatch(removeBasket());
+            navigate('/user/confirmation');
         }
     }
 

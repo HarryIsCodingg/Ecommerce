@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import CartModal from "./components/shopping-cart/CartModal";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+import ConfirmationPage from "./pages/ConfirmationPage/ConfirmationPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path='/' element={<HomePage/>}/>
                 <Route path='user/products' element={<ProductPage />} />
                 <Route path='user/checkout' element={<CheckoutPage />} />
+                <Route path='user/confirmation' element={<ConfirmationPage />} />
             </Routes>
             <CartModal />
         </Router>

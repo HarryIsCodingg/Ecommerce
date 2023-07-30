@@ -13,6 +13,19 @@ class UserService {
 
         return await result.json();
     }
+
+    static async getSuggestionsList(productListNames) {
+
+        const result = await fetch('http://localhost:8080/user/suggestions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(productListNames),
+        });
+
+        return await result.json();
+    }
 }
 
 export default UserService;

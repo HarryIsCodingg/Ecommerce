@@ -1,6 +1,6 @@
 import './CheckoutSummary.css';
 import {useSelector} from "react-redux";
-import {selectCoupons, selectCurrentUser} from "../../../core/redux-store/slices/userSlice";
+import {selectCurrentUser} from "../../../core/redux-store/slices/userSlice";
 import {useEffect, useState} from "react";
 
 const CheckoutSummary = () => {
@@ -19,23 +19,31 @@ const CheckoutSummary = () => {
         setSubTotal(sbtotal);
         setTax(+(.15 * sbtotal).toFixed(2));
         setTotal(sbtotal + +(.15 * sbtotal).toFixed(2));
-    }, [])
+    }, [productList])
 
     useEffect(() => {
-        const total = subtotal + +(.15 * subtotal).toFixed(2) - 5;
+
+    }, [isCouponApplied])
+
+    const handleChecked = (event) => {
+        const total = (subtotal + +(.15 * subtotal).toFixed(2) - 5);
         if(total >= 0){
-            setTotal(total);
+            setTotal(total.toFixed(2));
         }else{
             setTotal(0);
         }
-    }, [isCouponApplied])
+        if(!event.target.checked){
+            setTotal(total + 5);
+        }
+        setIsCouponApplied(event.target.checked);
+    }
 
     return (
         <div className='checkout-summary'>
             <h3 style={{textAlign: 'center', marginBottom: '28px'}}>Summary</h3>
             <div className='summary-items-wrapper'>
                 {productList.map((item) => (
-                    <div className='summary-row'>
+                    <div className='summary-row' key={item.name}>
                         <span>{item.name}</span>
                         <span>$ {+item.quantity * +item.pricePerPound}</span>
                     </div>
@@ -55,7 +63,7 @@ const CheckoutSummary = () => {
             </div>
 
             {coupons !== 0 && <div className='discount'>
-                <input type="checkbox" checked={isCouponApplied}/>
+                <input type="checkbox" checked={isCouponApplied} onChange={handleChecked}/>
                 <span>Apply 5 $ coupon</span>
             </div>}
         </div>

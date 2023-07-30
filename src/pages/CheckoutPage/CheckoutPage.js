@@ -4,6 +4,7 @@ import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import {Icon} from "@iconify/react";
 import {useDispatch, useSelector} from "react-redux";
 import {selectStep, setPrevStep} from "../../core/redux-store/slices/checkoutStepSlice";
+import SuggestionCarousel from "./suggestions-carousel/SuggestionCarousel";
 
 
 const CheckoutPage = () => {
@@ -16,13 +17,16 @@ const CheckoutPage = () => {
     }
 
     return (
-        <div className='checkout-page-wrapper'>
-            {activeStep === 2 && <button className='back-button pointer' onClick={handlePrevious}>
-                <Icon icon='ion:chevron-back' fontSize={20}/> Back</button>
-            }
-            <CheckoutForm />
-            <CheckoutSummary />
-        </div>
+        <>
+            <div className='checkout-page-wrapper'>
+                {activeStep === 2 && <button className='back-button pointer' onClick={handlePrevious}>
+                    <Icon icon='ion:chevron-back' fontSize={20}/> Back</button>
+                }
+                <CheckoutForm />
+                <CheckoutSummary />
+            </div>
+            <SuggestionCarousel />
+        </>
     )
 }
 

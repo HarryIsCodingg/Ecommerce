@@ -2,10 +2,9 @@
     border-radius: 8px;
     background: white;
     padding: 42px 56px 36px 56px;
-    /*overflow-y: scroll;*/
     width: 25%;
     box-shadow: 2px 4px 8px rgb(7, 7, 7);
-    position: fixed;
+    position: absolute;
     right: 56px;
     z-index: 5 !important;
 }
@@ -25,15 +24,14 @@
 }
 
 .discount {
-    position: fixed;
-    top: 350px;
+    position: relative;
+    top: 71px;
     text-align: center;
     display: flex;
     gap: 16px;
     z-index: -10 !important;
-    background: orange;
     justify-content: center;
-    border-bottom: 1px dashed black;
+    border-bottom: 1px dashed #7e7c7c;
     border-radius: 0 0 4px 4px;
     border-right: 1px dashed black;
     border-left: 1px dashed black;

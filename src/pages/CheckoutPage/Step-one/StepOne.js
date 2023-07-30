@@ -85,7 +85,7 @@ const StepOne = () => {
                 <div className='form-row'>
                     <label htmlFor="street" style={{display: 'block'}} className='required-field'>Street Address</label>
                     <input className='form-input' type="text" id="street" name="street" onChange={handleStreetAddress} value={streetAddress}/>
-                    {isStreetAddressMissing && <div className='error'>Password required</div>}
+                    {isStreetAddressMissing && <div className='error'>Street required</div>}
                 </div>
                 <div className='form-row'>
                     <label htmlFor="city" style={{display: 'block'}} className='required-field'>City</label>

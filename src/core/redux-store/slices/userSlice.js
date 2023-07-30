@@ -36,6 +36,9 @@ const userSlice = createSlice({
         setCustomBasket: (state) => {
             state.isCustomBasketSelected = true;
         },
+        removeBasket : (state) => {
+            state.isCustomBasketSelected = undefined;
+        },
         setEmptyBasket: (state) => {
             state.isCustomBasketSelected = false;
             state.productList = [];
@@ -70,7 +73,7 @@ const userSlice = createSlice({
 export default userSlice.reducer;
 export const { setUser, setCustomBasket, setEmptyBasket,
     setProductList, setUserLogin, setUserLogout,
-    setAddress, setEmail, setName, setCoupons, setPaymentDetails} = userSlice.actions;
+    setAddress, setEmail, setName, removeBasket, setCoupons, setPaymentDetails} = userSlice.actions;
 export const selectCurrentUser = (state) => state.currentUser;
 export const selectIsCustomBasketSelected = (state) => state.currentUser.isCustomBasketSelected;
 export const selectIsUserLoggedIn = (state) => state.currentUser.isLoggedIn;
