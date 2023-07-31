@@ -1,0 +1,12 @@
+.close-modal {
+  color: orange;
+
+}
+
+.close-modal:hover {
+  color: black;
+}
+
+.add-modal {
+  position: fixed;
+}

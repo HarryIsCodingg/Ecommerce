@@ -6,6 +6,8 @@ import AdminService from "../../core/services/AdminService";
 import UserService from "../../core/services/UserService";
 import {setUser, setUserLogin} from "../../core/redux-store/slices/userSlice";
 import {closeBasketModal, openBasketModal} from "../../core/redux-store/slices/basketModalSlice";
+import {setAdmin} from "../../core/redux-store/slices/adminSlice";
+import {useNavigate} from "react-router-dom";
 
 const LoginForm =() => {
 
@@ -16,6 +18,7 @@ const LoginForm =() => {
     const [showError, setShowError] = useState(false);
     const flow = useSelector(selectFlow);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleNameChange = (event) => {
         setUsername(event.target.value);
@@ -38,7 +41,13 @@ const LoginForm =() => {
             if(password === ''){setIsPasswordMissing(true);}
         }
         else if(flow === 'admin'){
-            AdminService.verifyLogin({username: username, password: password})
+            const admin = await AdminService.verifyLogin({username: username, password: password});
+            if(!!admin.credentials){
+                SaveAdmin(admin);
+                navigate('/admin/products');
+            }else{
+                setShowError(true);
+            }
         }else if(flow === 'user'){
             const user= await UserService.verifyLogin({username: username, password: password});
             if(!!user.credentials){
@@ -53,6 +62,10 @@ const LoginForm =() => {
         dispatch(setUser(user));
         dispatch(openBasketModal());
         dispatch(setUserLogin());
+    }
+
+    const SaveAdmin = (admin) => {
+        dispatch(setAdmin(admin));
     }
 
     return (

@@ -1,0 +1,41 @@
+.product-header {
+    display: flex;
+    margin: 0 20px 56px 56px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 56px;
+}
+
+.product-header h4 {
+    flex-grow: 1;
+}
+.product-header h4:nth-child(1) {
+    margin-left: 24px;
+}
+
+.product-header h4:nth-child(2) {
+    text-align: center;
+    margin-right: 100px;
+}
+
+.product-header h4:nth-child(3), h4:nth-child(4) {
+    text-align: right;
+}
+
+.deleted-success {
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 24px;
+    margin-right: 36px;
+    margin-left: 36px;
+    margin-top: 36px;
+    background: orange;
+}
+
+.add {
+    margin-top: 36px;
+    margin-left: 56px;
+}
