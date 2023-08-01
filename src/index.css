@@ -41,3 +41,12 @@
 .delete-icon:hover {
   scale: 1.1;
 }
+
+.delete-icon-orange {
+  color: orange;
+  scale: 1.2;
+}
+
+.delete-icon-orange:hover {
+  scale: 1.3;
+}
