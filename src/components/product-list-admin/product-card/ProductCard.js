@@ -1,4 +1,5 @@
 import '../../../assets/images/apple.png';
+import './ProductCard.css';
 
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
@@ -59,8 +60,10 @@ const ProductCard = (props) => {
             <span>{props.name}</span>
             <span>{props.pricePerPound}</span>
             <span>{props.quantity}</span>
-            <Icon icon='typcn:delete-outline' fontSize={24} className='delete-icon pointer' onClick={deleteProduct}/>
-            <Icon icon='uil:edit' fontSize={24} className='delete-icon pointer' onClick={updateProduct}/>
+            <div className='icon-wrapper'>
+                <Icon icon='typcn:delete-outline' fontSize={24} className='delete-icon-orange pointer' onClick={deleteProduct}/>
+                <Icon icon='uil:edit' fontSize={24} className='delete-icon-orange pointer' onClick={updateProduct}/>
+            </div>
         </div>
     )
 }

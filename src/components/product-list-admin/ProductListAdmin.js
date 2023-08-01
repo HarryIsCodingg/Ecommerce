@@ -49,12 +49,11 @@ const ProductListAdmin = () => {
                 <Icon icon='mdi:success-circle' fontSize={24}/>
                 {deletedProduct} deleted successfully
             </div>}
-            <div className='product-header'>
+            <div className='products-header width'>
                 <h4>Image</h4>
                 <h4>Name</h4>
                 <h4>Price/pound</h4>
-                <h4>Delete</h4>
-                <h4>Update</h4>
+                <h4>Quantity</h4>
             </div>
             {selectProducts.map((product) => (
                 <ProductCard {...product} key={product.name}/>
