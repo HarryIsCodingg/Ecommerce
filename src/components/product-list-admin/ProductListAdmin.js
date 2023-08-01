@@ -10,6 +10,7 @@ import {
 } from "../../core/redux-store/slices/productSlice";
 import {Icon} from "@iconify/react";
 import AddProductModal from "./add-product-modal/AddProductModal";
+import UpdateModal from "./product-update-modal/UpdateModal";
 
 const ProductListAdmin = () => {
 
@@ -31,7 +32,7 @@ const ProductListAdmin = () => {
         setShowDeletedMessage(true);
         setTimeout(() => (
             setShowDeletedMessage(false)
-        ), 2000)
+        ), 3000)
 
     },[deletedProduct])
 
@@ -42,6 +43,7 @@ const ProductListAdmin = () => {
     return (
         <div className='product-list-wrapper'>
             <AddProductModal />
+            <UpdateModal />
             <button onClick={addProduct} className='add-button pointer add'>Add product</button>
             {!!deletedProduct && showDeletedMessage && <div className='deleted-success'>
                 <Icon icon='mdi:success-circle' fontSize={24}/>

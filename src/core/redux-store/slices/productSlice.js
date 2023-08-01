@@ -4,6 +4,8 @@ const productState = {
     availableProducts: [],
     deletedProduct: undefined,
     openAddProductModal: false,
+    updateProduct: undefined,
+    openProductUpdateModal: false,
 }
 
 const productSlice = createSlice({
@@ -22,11 +24,24 @@ const productSlice = createSlice({
         setCloseAddProductModal: (state) => {
             state.openAddProductModal = false;
         },
+        setOpenProductUpdateModal: (state) => {
+            state.openProductUpdateModal = true;
+        },
+        setCloseProductUpdateModal: (state) => {
+            state.openProductUpdateModal = false;
+        },
+        setProductToUpdate: (state, action) => {
+            state.updateProduct = action.payload;
+        },
     }
 });
 
 export default productSlice.reducer;
-export const { setAvailableProducts, setProductDeleted, setCloseAddProductModal, setOpenAddProductModal } = productSlice.actions;
+export const { setAvailableProducts, setProductDeleted, setCloseAddProductModal, setOpenAddProductModal,
+        setOpenProductUpdateModal, setCloseProductUpdateModal, setProductToUpdate} = productSlice.actions;
 export const selectAllProducts = (state) => state.products.availableProducts;
 export const selectDeletedProduct = (state) => state.products.deletedProduct;
 export const selectOpenAddProductModal = (state) => state.products.openAddProductModal;
+export const selectProductUpdateModal = (state) => state.products.openProductUpdateModal;
+export const selectUpdatedProduct = (state) => state.products.updateProduct;
+

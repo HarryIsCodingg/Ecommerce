@@ -1,23 +1,19 @@
 import '../../../assets/images/apple.png';
 
 import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {selectCurrentUser, setProductList} from "../../../core/redux-store/slices/userSlice";
+import {useDispatch} from "react-redux";
 import {Icon} from "@iconify/react";
 import ProductService from "../../../core/services/ProductService";
 import {
-    selectAllProducts,
     setAvailableProducts,
-    setProductDeleted
+    setOpenProductUpdateModal,
+    setProductDeleted, setProductToUpdate
 } from "../../../core/redux-store/slices/productSlice";
 
 const ProductCard = (props) => {
 
     const [imageUrl, setImageUrl] = useState('');
-    const [productQuantity, setProductQuantity] = useState(0);
     const dispatch = useDispatch();
-    const [isProductDeleted, setIsProductDeleted] = useState(false);
-    const getAllProducts = useSelector(selectAllProducts);
 
     useEffect(() => {
         const fetchImage = async () => {
@@ -25,7 +21,8 @@ const ProductCard = (props) => {
                 const imageModule = await import(`../../../assets/images/${props.name}.png`);
                 setImageUrl(imageModule.default);
             } catch (error) {
-                console.error(`Error loading image: ${error}`);
+                const imageModule = await import(`../../../assets/images/no-image.png`);
+                setImageUrl(imageModule.default);
             }
         };
 
@@ -44,7 +41,6 @@ const ProductCard = (props) => {
     const deleteProduct = async () => {
         const isResponseOk = await ProductService.deleteProduct(props.name);
         if(isResponseOk){
-            setIsProductDeleted(true);
             const products = await ProductService.getAllProducts();
             dispatch(setAvailableProducts(products));
             dispatch(setProductDeleted(props.name));
@@ -52,7 +48,8 @@ const ProductCard = (props) => {
     }
 
     const updateProduct = () => {
-
+        dispatch(setProductToUpdate({...props}));
+        dispatch(setOpenProductUpdateModal());
     }
 
 
@@ -61,6 +58,7 @@ const ProductCard = (props) => {
             <div style={imageStyle} className='product-image'></div>
             <span>{props.name}</span>
             <span>{props.pricePerPound}</span>
+            <span>{props.quantity}</span>
             <Icon icon='typcn:delete-outline' fontSize={24} className='delete-icon pointer' onClick={deleteProduct}/>
             <Icon icon='uil:edit' fontSize={24} className='delete-icon pointer' onClick={updateProduct}/>
         </div>
