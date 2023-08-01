@@ -9,11 +9,9 @@ class AdminService {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(credentials),
-        }).then((res) => {
-            return res.json();
-        })
-        const data = await response;
-        console.log(data);
+        });
+
+        return await response.json();
     }
 }
 

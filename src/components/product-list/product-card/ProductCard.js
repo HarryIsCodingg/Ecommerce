@@ -17,7 +17,8 @@ const ProductCard = (props) => {
                 const imageModule = await import(`../../../assets/images/${props.name}.png`);
                 setImageUrl(imageModule.default);
             } catch (error) {
-                console.error(`Error loading image: ${error}`);
+                const imageModule = await import(`../../../assets/images/no-image.png`);
+                setImageUrl(imageModule.default);
             }
         };
 

@@ -8,6 +8,7 @@ import CartModal from "./components/shopping-cart/CartModal";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import ConfirmationPage from "./pages/ConfirmationPage/ConfirmationPage";
+import ProductPageForAdmin from "./pages/ProductPageForAdmin/ProductPageForAdmin";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path='user/products' element={<ProductPage />} />
                 <Route path='user/checkout' element={<CheckoutPage />} />
                 <Route path='user/confirmation' element={<ConfirmationPage />} />
+                <Route path='admin/products' element={<ProductPageForAdmin />} />
             </Routes>
             <CartModal />
         </Router>
