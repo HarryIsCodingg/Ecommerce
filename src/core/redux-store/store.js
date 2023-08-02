@@ -5,6 +5,7 @@ import showBasketModalReducer from './slices/basketModalSlice';
 import availableProductReducer from './slices/productSlice';
 import checkoutStepReducer from './slices/checkoutStepSlice';
 import adminReducer from './slices/adminSlice';
+import categoryReducer from './slices/categorySlice';
 
 const store = configureStore({
     devTools: true,
@@ -15,6 +16,7 @@ const store = configureStore({
         products: availableProductReducer,
         checkoutStep: checkoutStepReducer,
         currentAdmin: adminReducer,
+        category: categoryReducer,
     }
 })
 
