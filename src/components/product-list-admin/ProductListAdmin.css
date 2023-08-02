@@ -36,3 +36,18 @@
 .width {
     width: 80%;
 }
+
+.add-category {
+    background: black;
+    color: orange;
+    margin-left: 24px;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.add-category:hover {
+    background: none;
+    border: 1px solid orange;
+    color: black;
+}

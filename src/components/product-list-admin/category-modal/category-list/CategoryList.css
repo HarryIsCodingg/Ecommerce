@@ -1,0 +1,19 @@
+.category-list-wrapper {
+    margin-top: 36px;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.item-content {
+    padding: 8px 8px 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid gainsboro;
+}
+
+.item-content:hover {
+    border-radius: 8px;
+    background: gainsboro;
+}

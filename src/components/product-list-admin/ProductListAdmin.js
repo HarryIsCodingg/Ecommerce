@@ -11,6 +11,8 @@ import {
 import {Icon} from "@iconify/react";
 import AddProductModal from "./add-product-modal/AddProductModal";
 import UpdateModal from "./product-update-modal/UpdateModal";
+import CategoryModal from "./category-modal/CategoryModal";
+import {setOpenCategoryModal} from "../../core/redux-store/slices/categorySlice";
 
 const ProductListAdmin = () => {
 
@@ -40,11 +42,17 @@ const ProductListAdmin = () => {
         dispatch(setOpenAddProductModal());
     }
 
+    const addCategory = () => {
+        dispatch(setOpenCategoryModal());
+    }
+
     return (
         <div className='product-list-wrapper'>
             <AddProductModal />
             <UpdateModal />
+            <CategoryModal />
             <button onClick={addProduct} className='add-button pointer add'>Add product</button>
+            <button onClick={addCategory} className='add-category pointer'>Add category</button>
             {!!deletedProduct && showDeletedMessage && <div className='deleted-success'>
                 <Icon icon='mdi:success-circle' fontSize={24}/>
                 {deletedProduct} deleted successfully
