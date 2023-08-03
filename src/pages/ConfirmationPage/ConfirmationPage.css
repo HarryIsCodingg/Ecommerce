@@ -19,3 +19,21 @@
     flex-direction: column;
     gap: 24px;
 }
+
+.coupon-added {
+    position: absolute;
+    background-image: url("../../assets/images/coupon.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 62%;
+    height: 200px;
+    width: 300px;
+}
+
+.coupon-added h4 {
+    position: relative;
+    top: 70px;
+    left: 100px;
+}

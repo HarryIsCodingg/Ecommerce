@@ -22,6 +22,8 @@ const userState = {
         expiryDate: undefined,
     },
     coupons: undefined,
+    subTotalPrice: false,
+    isCouponUsed: false,
 }
 
 const userSlice = createSlice({
@@ -32,6 +34,7 @@ const userSlice = createSlice({
             state.credentials = {...action.payload.credentials}
             state.hasCustomBasket = action.payload.hasCustomBasket;
             state.productList = action.payload.productList;
+            state.coupons = action.payload.coupons;
         },
         setCustomBasket: (state) => {
             state.isCustomBasketSelected = true;
@@ -66,6 +69,12 @@ const userSlice = createSlice({
         },
         setCoupons : (state, action) => {
             state.coupons = action.payload;
+        },
+        setSubtotalPrice : (state, action) => {
+            state.subTotalPrice = action.payload;
+        },
+        setCouponUsed: state => {
+            state.isCouponUsed = !state.isCouponUsed;
         }
     }
 });
@@ -73,8 +82,11 @@ const userSlice = createSlice({
 export default userSlice.reducer;
 export const { setUser, setCustomBasket, setEmptyBasket,
     setProductList, setUserLogin, setUserLogout,
-    setAddress, setEmail, setName, removeBasket, setCoupons, setPaymentDetails} = userSlice.actions;
+    setAddress, setEmail, setName,
+    removeBasket, setCoupons, setPaymentDetails, setSubtotalPrice, setCouponUsed} = userSlice.actions;
 export const selectCurrentUser = (state) => state.currentUser;
 export const selectIsCustomBasketSelected = (state) => state.currentUser.isCustomBasketSelected;
 export const selectIsUserLoggedIn = (state) => state.currentUser.isLoggedIn;
 
+export const selectSubTotalPrice = (state) => state.currentUser.subTotalPrice;
+export const selectIsCouponUsed = state => state.currentUser.isCouponUsed;

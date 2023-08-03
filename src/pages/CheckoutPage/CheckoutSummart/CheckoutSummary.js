@@ -1,6 +1,10 @@
 import './CheckoutSummary.css';
-import {useSelector} from "react-redux";
-import {selectCurrentUser} from "../../../core/redux-store/slices/userSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    selectCurrentUser,
+    setCoupons, setCouponUsed,
+    setSubtotalPrice
+} from "../../../core/redux-store/slices/userSlice";
 import {useEffect, useState} from "react";
 
 const CheckoutSummary = () => {
@@ -10,6 +14,7 @@ const CheckoutSummary = () => {
     const [tax, setTax] = useState(0);
     const [total, setTotal] = useState(0);
     const [isCouponApplied, setIsCouponApplied] = useState(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const sbtotal = productList.reduce((total, item) => {
@@ -19,22 +24,22 @@ const CheckoutSummary = () => {
         setSubTotal(sbtotal);
         setTax(+(.15 * sbtotal).toFixed(2));
         setTotal(sbtotal + +(.15 * sbtotal).toFixed(2));
+        dispatch(setSubtotalPrice(sbtotal));
     }, [productList])
-
-    useEffect(() => {
-
-    }, [isCouponApplied])
 
     const handleChecked = (event) => {
         const total = (subtotal + +(.15 * subtotal).toFixed(2) - 5);
+        dispatch(setCoupons(coupons - 1));
         if(total >= 0){
             setTotal(total.toFixed(2));
         }else{
             setTotal(0);
         }
         if(!event.target.checked){
+            dispatch(setCoupons(coupons + 1));
             setTotal(total + 5);
         }
+        dispatch(setCouponUsed());
         setIsCouponApplied(event.target.checked);
     }
 
