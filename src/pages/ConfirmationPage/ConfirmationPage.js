@@ -1,23 +1,11 @@
 import './ConfirmationPage.css';
 import {useSelector} from "react-redux";
-import {selectCurrentUser, selectSubTotalPrice} from "../../core/redux-store/slices/userSlice";
-import {useEffect} from "react";
-import UserService from "../../core/services/UserService";
+import {selectSubTotalPrice} from "../../core/redux-store/slices/userSlice";
+
 
 const ConfirmationPage = () => {
 
     const selectPrice = useSelector(selectSubTotalPrice);
-    const {coupons, isCouponUsed, credentials} = useSelector(selectCurrentUser);
-
-    useEffect(() => {
-        if((selectPrice >= 100 || isCouponUsed) && !(selectPrice>=100 && isCouponUsed)){
-            if(selectPrice >= 100) {
-                UserService.updateCoupons(coupons + 1, credentials.username);
-            }else{
-                UserService.updateCoupons(coupons, credentials.username);
-            }
-        }
-    }, []);
 
     return (
         <div className='confirmation-page-wrapper'>

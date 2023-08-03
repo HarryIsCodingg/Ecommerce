@@ -1,8 +1,9 @@
 import {useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Icon} from "@iconify/react";
 import {useNavigate} from "react-router-dom";
-import {removeBasket} from "../../../core/redux-store/slices/userSlice";
+import {removeBasket, selectCurrentUser, selectSubTotalPrice} from "../../../core/redux-store/slices/userSlice";
+import UserService from "../../../core/services/UserService";
 
 const StepTwo = () => {
     const [emailAddress, setEmailAddress] = useState('');
@@ -15,6 +16,8 @@ const StepTwo = () => {
     const [isCardCVVMissing, setIsCardCVVMissing] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const selectPrice = useSelector(selectSubTotalPrice);
+    const {coupons, isCouponUsed, credentials} = useSelector(selectCurrentUser);
 
     const handleEmail = (event) => {
         setEmailAddress(event.target.value);
@@ -51,6 +54,13 @@ const StepTwo = () => {
         }else{
             dispatch(removeBasket());
             navigate('/user/confirmation');
+            if((selectPrice >= 100 || isCouponUsed) && !(selectPrice>=100 && isCouponUsed)){
+                if(selectPrice >= 100) {
+                    UserService.updateCoupons(coupons + 1, credentials.username);
+                }else{
+                    UserService.updateCoupons(coupons, credentials.username);
+                }
+            }
         }
     }
 
