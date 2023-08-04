@@ -6,6 +6,7 @@ import {selectOpenAddProductModal, setAvailableProducts, setCloseAddProductModal
 import {Icon} from "@iconify/react";
 import CategoryService from "../../../core/services/CategoryService";
 import ProductService from "../../../core/services/ProductService";
+import {selectCategories} from "../../../core/redux-store/slices/categorySlice";
 
 const AddProductModal = () => {
     const [isModalOpen,setIsModalOpen] = useState(false);
@@ -23,6 +24,7 @@ const AddProductModal = () => {
     const dispatch = useDispatch();
     const [categories, setCategories] = useState([]);
     const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+    const allCategories = useSelector(selectCategories);
 
     useEffect(()=> {
         setIsModalOpen(showAddModal);
@@ -35,7 +37,7 @@ const AddProductModal = () => {
         }
 
         getAllCategories();
-    }, [])
+    }, [allCategories])
 
     const closeModal = () => {
         setIsModalOpen(false);
