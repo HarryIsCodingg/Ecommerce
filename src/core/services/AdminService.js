@@ -3,7 +3,7 @@ class AdminService {
 
     static async verifyLogin(credentials) {
 
-        const response = await fetch('http://localhost:8080/admin/login', {
+        const response = await fetch('https://ecommerce-rest.onrender.com/admin/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
