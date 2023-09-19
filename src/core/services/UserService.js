@@ -3,7 +3,7 @@ class UserService {
 
     static async verifyLogin(credentials) {
 
-        const result = await fetch('http://localhost:8080/user/login', {
+        const result = await fetch('https://ecommerce-rest.onrender.com/user/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -16,7 +16,7 @@ class UserService {
 
     static async getSuggestionsList(productListNames) {
 
-        const result = await fetch('http://localhost:8080/user/suggestions', {
+        const result = await fetch('https://ecommerce-rest.onrender.com/user/suggestions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ class UserService {
 
     static async updateCoupons(coupons, name) {
 
-        const result = await fetch(`http://localhost:8080/user/coupons/update?coupons=${coupons}&username=${name}`, {
+        const result = await fetch(`https://ecommerce-rest.onrender.com/user/coupons/update?coupons=${coupons}&username=${name}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

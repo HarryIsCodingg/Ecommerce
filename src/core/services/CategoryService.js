@@ -3,14 +3,14 @@ class CategoryService {
 
     static async getAllCategories() {
 
-        const result = await fetch('http://localhost:8080/category/list');
+        const result = await fetch('https://ecommerce-rest.onrender.com/category/list');
 
         return await result.json();
     }
 
     static async addCategory(category){
 
-        const result = await fetch('http://localhost:8080/category/add', {
+        const result = await fetch('https://ecommerce-rest.onrender.com/category/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ class CategoryService {
 
     static async deleteCategory(category){
 
-        const result = await fetch(`http://localhost:8080/category/delete?name=${category}`, {
+        const result = await fetch(`https://ecommerce-rest.onrender.com/category/delete?name=${category}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
